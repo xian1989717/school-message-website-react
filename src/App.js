@@ -1,16 +1,16 @@
-import React from 'react';
-import { Route, Link, HashRouter } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import React from 'react'
+import { Route, Link, HashRouter } from 'react-router-dom'
+import { Layout, Menu } from 'antd'
 import {
   UserOutlined,
   VideoCameraOutlined
-} from '@ant-design/icons';
-import 'antd/dist/antd.css';
+} from '@ant-design/icons'
+import 'antd/dist/antd.css'
 
 import GradeGroup from './modules/grade-group'
 import Test from './modules/test'
 
-const { Sider } = Layout;
+const { Sider } = Layout
 
 class App extends React.Component {
   render () {
@@ -36,7 +36,7 @@ class App extends React.Component {
           </Layout>
         </Layout>
       </HashRouter>
-    );
+    )
   }
 }
 
