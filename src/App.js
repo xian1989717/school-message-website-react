@@ -1,60 +1,43 @@
-import { HashRouter, Route, Link } from 'react-router-dom'
-import { Menu, Layout } from 'antd'
-import './App.css'
+import React from 'react';
+import { Route, Link, HashRouter } from 'react-router-dom';
+import { Layout, Menu } from 'antd';
+import {
+  UserOutlined,
+  VideoCameraOutlined
+} from '@ant-design/icons';
+import 'antd/dist/antd.css';
 
+import GradeGroup from './modules/grade-group'
+import Test from './modules/test'
 
-const { Header, Content, Footer, Sider } = Layout
+const { Sider } = Layout;
 
-function App () {
-  return (
-    <Layout style={{ height: '100%' }}>
+class App extends React.Component {
+  render () {
+    return (
       <HashRouter>
-        <Sider
-          theme="light"
-          breakpoint="lg"
-          collapsedWidth="0"
-          onBreakpoint={broken => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
-        >
-          <div className="logo" />
-          <Menu theme="light" mode="inline" defaultSelectedKeys={['4']}>
-            <Menu.Item key="1">
-              <Link to="/gradeGroup">
-                年级组
-                </Link>
-            </Menu.Item>
-            {/* <Menu.Item key="2">
-              <Link to="/test">
-                分包合同记录
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <span className="nav-text">nav 3</span>
-            </Menu.Item>
-            <Menu.Item key="4">
-              <span className="nav-text">nav 4</span>
-            </Menu.Item> */}
-          </Menu>
-        </Sider>
-        <Layout>
-          <Header className="site-layout-sub-header-background" style={{ padding: 0 }} >1234</Header>
-          <Content style={{ margin: '24px 16px 0' }}>
-            <div className="site-layout-background" style={{ height: '100%', padding: 24, minHeight: 360 }}>
-              <Route path="/gradeGroup" component={GradeGroup} exact ></Route>
-            </div>
-            {/* <div className="site-layout-background" style={{ height: '100%', padding: 24, minHeight: 360 }}>
-              <Route path="/test" component={Test}></Route>
-            </div> */}
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        <Layout
+          style={{
+            height: '100%'
+          }}>
+          <Sider trigger={null} collapsible>
+            <Menu mode="inline" defaultSelectedKeys={['1']}>
+              <Menu.Item key="1" icon={<UserOutlined />}>
+                <Link to="/gradeGroup">年级组</Link>
+              </Menu.Item>
+              <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+                <Link to="/test">测试</Link>
+              </Menu.Item>
+            </Menu>
+          </Sider>
+          <Layout className="site-layout">
+            <Route path="/gradeGroup" component={GradeGroup} />
+            <Route path="/test" component={Test} />
+          </Layout>
         </Layout>
       </HashRouter>
-    </Layout>
-  )
+    );
+  }
 }
 
 export default App
