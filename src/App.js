@@ -31,6 +31,7 @@ class App extends React.Component {
             </Menu>
           </Sider>
           <Layout className="site-layout">
+            <Route path="/" component={GradeGroup} exact />
             <Route path="/gradeGroup" component={GradeGroup} />
             <Route path="/test" component={Test} />
           </Layout>
