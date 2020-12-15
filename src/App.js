@@ -8,14 +8,15 @@ import {
 import 'antd/dist/antd.css'
 
 import GradeGroup from './modules/grade-group'
-import Test from './modules/test'
+import Teacher from './modules/teacher'
 
-const { Sider } = Layout
+const { Header, Sider } = Layout
 
 class App extends React.Component {
   render () {
     return (
       <HashRouter>
+        <Header>Header</Header>
         <Layout
           style={{
             height: '100%'
@@ -26,14 +27,14 @@ class App extends React.Component {
                 <Link to="/gradeGroup">年级组</Link>
               </Menu.Item>
               <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                <Link to="/test">测试</Link>
+                <Link to="/teacher">教师</Link>
               </Menu.Item>
             </Menu>
           </Sider>
           <Layout className="site-layout">
             <Route path="/" component={GradeGroup} exact />
             <Route path="/gradeGroup" component={GradeGroup} />
-            <Route path="/test" component={Test} />
+            <Route path="/teacher" component={Teacher} />
           </Layout>
         </Layout>
       </HashRouter>
