@@ -5,99 +5,103 @@ const columns = [
     title: '姓名',
     dataIndex: 'name',
     // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    render: text => <a>{text}</a>
+    render: text => <a>{text}</a>,
+    width: 50
   },
   {
     title: '年龄',
-    dataIndex: 'age'
+    dataIndex: 'age',
+    width: 100
   },
   {
     title: '职称',
-    dataIndex: 'positionalTitles'
+    dataIndex: 'positionalTitles',
+    width: 100
   },
   {
     title: '身份证号码',
-    dataIndex: 'personId'
+    dataIndex: 'personId',
+    width: 200
   },
   {
     title: '毕业学校',
-    dataIndex: 'graduateSchool'
+    dataIndex: 'graduateSchool',
+    width: 180
   },
   {
     title: '专业',
-    dataIndex: 'speciality'
-  },
-  {
-    title: '职称',
-    dataIndex: 'rank'
+    dataIndex: 'speciality',
+    width: 150
   },
   {
     title: '进修时间',
-    dataIndex: 'studiesTime'
+    dataIndex: 'studiesTime',
+    width: 180
   },
   {
     title: '工作时间',
-    dataIndex: 'workStartTime'
+    dataIndex: 'workStartTime',
+    width: 180
   },
   {
     title: '性别',
-    dataIndex: 'gender'
+    dataIndex: 'gender',
+    width: 150
   },
   {
     title: '毕业时间',
-    dataIndex: 'graduationTime'
+    dataIndex: 'graduationTime',
+    width: 180
   },
   {
     title: '取得职称时间',
-    dataIndex: 'obtainPositionalTitlesTime'
+    dataIndex: 'obtainPositionalTitlesTime',
+    width: 250
   },
   {
     title: '行政职务',
-    dataIndex: 'administrativePosition'
-  },
-  {
-    title: '行政职务',
-    dataIndex: 'administrativePosition'
+    dataIndex: 'administrativePosition',
+    width: 180
   },
   {
     title: '联系地址',
-    dataIndex: 'address'
+    dataIndex: 'address',
+    width: 150
   },
   {
     title: '联系电话',
-    dataIndex: 'phone'
+    dataIndex: 'phone',
+    width: 150
   },
   {
     title: '紧急联络人',
-    dataIndex: 'sosPerson'
+    dataIndex: 'sosPerson',
+    width: 150
   },
   {
     title: '紧急联络人电话',
-    dataIndex: 'sosPersonPhone'
+    dataIndex: 'sosPersonPhone',
+    width: 150
   },
   {
     title: '是否班主任',
-    dataIndex: 'isClassTeacher'
+    dataIndex: 'isClassTeacher',
+    width: 150
   },
   {
     title: '所任学科',
-    dataIndex: 'subjectName'
+    dataIndex: 'subjectName',
+    width: 150
   },
   {
     title: '是否党员',
-    dataIndex: 'isPartyMember'
+    dataIndex: 'isPartyMember',
+    width: 150
   },
   {
     title: '备注',
-    dataIndex: 'remark'
-  },
-  {
-    title: '行政职务',
-    dataIndex: 'administrativePosition'
-  },
-  {
-    title: '行政职务',
-    dataIndex: 'administrativePosition'
+    dataIndex: 'remark',
+    width: 150
   }
 ]
 
@@ -136,6 +140,7 @@ class Teacher extends React.Component {
         <Table
           columns={columns}
           dataSource={data}
+          scroll={{ x: '100vw' }}
           bordered
           rowKey={record => record.id}
           style={{ padding: '0px 24px' }}
