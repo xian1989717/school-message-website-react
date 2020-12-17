@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { PageHeader, Button, Table } from 'antd'
+import { PageHeader, Button, Table, Space } from 'antd'
 const columns = [
   {
     title: '姓名',
@@ -102,6 +103,18 @@ const columns = [
     title: '备注',
     dataIndex: 'remark',
     width: 150
+  },
+  {
+    title: '操作',
+    dataIndex: '',
+    width: 180,
+    key: 'x',
+    render: (text, record) => (
+      <Space size="middle">
+        <a>查看</a>
+        <a>删除</a>
+      </Space>
+    ),
   }
 ]
 
