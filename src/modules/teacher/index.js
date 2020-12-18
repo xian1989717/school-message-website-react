@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { PageHeader, Button, Table, Space } from 'antd'
+import { PageHeader, Button, Table, Space, Modal } from 'antd'
+
 const columns = [
   {
     title: '姓名',
@@ -140,6 +141,29 @@ const data = [
 ]
 class Teacher extends React.Component {
 
+  state = {
+    visible: false,
+    disabled: true,
+  }
+
+  addTeacher = () => {
+    this.setState({
+      visible: true
+    })
+  }
+
+  handleOk = () => {
+    this.setState({
+      visible: false
+    })
+  }
+
+  handleCancel = () => {
+    this.setState({
+      visible: false
+    })
+  }
+
   render () {
     return (
       <div>
@@ -147,7 +171,10 @@ class Teacher extends React.Component {
           className="site-page-header"
           title="教师"
           extra={[
-            <Button type="primary">添加</Button>
+            <Button
+              type="primary"
+              onClick={this.addTeacher}
+            >添加</Button>
           ]}
         />
         <Table
@@ -158,6 +185,18 @@ class Teacher extends React.Component {
           rowKey={record => record.id}
           style={{ padding: '0px 24px' }}
         />
+        <Modal
+          maskClosable={false}
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}>
+          <p>
+            Just don&apos;t learn physics at school and your life will be full of magic and
+            miracles.
+          </p>
+          <br />
+          <p>Day before yesterday I saw a rabbit, and yesterday a deer, and today, you.</p>
+        </Modal>
       </div>
     )
   }
