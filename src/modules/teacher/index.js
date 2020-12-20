@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { PageHeader, Button, Table, Space, Modal } from 'antd'
+import { PageHeader, Button, Table, Space, Modal, Form, Input, InputNumber, Row, Col, Checkbox } from 'antd'
 
 const columns = [
   {
@@ -139,6 +139,16 @@ const data = [
     address: 'Sidney No. 1 Lake Park',
   }
 ]
+
+const layout = {
+  labelCol: {
+    span: 8,
+  },
+  wrapperCol: {
+    span: 16,
+  },
+}
+
 class Teacher extends React.Component {
 
   state = {
@@ -164,6 +174,14 @@ class Teacher extends React.Component {
     })
   }
 
+  onFinish = (values) => {
+    console.log('Success:', values)
+  }
+
+  onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo)
+  }
+
   render () {
     return (
       <div>
@@ -182,22 +200,339 @@ class Teacher extends React.Component {
           dataSource={data}
           scroll={{ x: '100vw' }}
           bordered
-          rowKey={record => record.id}
+          rowKey={record => record.id + ''}
           style={{ padding: '0px 24px' }}
         />
         <Modal
+          title="添加"
+          width={1000}
           maskClosable={false}
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}>
-          <p>
-            Just don&apos;t learn physics at school and your life will be full of magic and
-            miracles.
-          </p>
-          <br />
-          <p>Day before yesterday I saw a rabbit, and yesterday a deer, and today, you.</p>
+          <Form
+            {...layout}
+            name="basic"
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={this.onFinish}
+            onFinishFailed={this.onFinishFailed}
+          >
+            <Row>
+              <Col span={8}>
+                <Form.Item
+                  label="姓名"
+                  name="姓名"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your username!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="年龄"
+                  name="年龄"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="职称"
+                  name="职称"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <InputNumber />
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8}>
+                <Form.Item
+                  label="姓名"
+                  name="姓名"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your username!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="年龄"
+                  name="年龄"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="职称"
+                  name="职称"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <InputNumber />
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8}>
+                <Form.Item
+                  label="姓名"
+                  name="姓名"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your username!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="年龄"
+                  name="年龄"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="职称"
+                  name="职称"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <InputNumber />
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8}>
+                <Form.Item
+                  label="姓名"
+                  name="姓名"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your username!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="年龄"
+                  name="年龄"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="职称"
+                  name="职称"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <InputNumber />
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8}>
+                <Form.Item
+                  label="姓名"
+                  name="姓名"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your username!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="年龄"
+                  name="年龄"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="职称"
+                  name="职称"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <InputNumber />
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8}>
+                <Form.Item
+                  label="姓名"
+                  name="姓名"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your username!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="年龄"
+                  name="年龄"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="职称"
+                  name="职称"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <InputNumber />
+                </Form.Item>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={8}>
+                <Form.Item
+                  label="姓名"
+                  name="姓名"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your username!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="年龄"
+                  name="年龄"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+              <Col span={8}>
+                <Form.Item
+                  label="职称"
+                  name="职称"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <InputNumber />
+                </Form.Item>
+              </Col>
+            </Row>
+
+
+
+          </Form>
         </Modal>
-      </div>
+      </div >
     )
   }
 }

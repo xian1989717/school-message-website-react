@@ -94,7 +94,7 @@ class GradeGroup extends React.Component {
           columns={columns}
           dataSource={data}
           bordered
-          rowKey='id'
+          rowKey={record => record.id + ''}
           style={{ padding: '0px 24px' }}
         />
       </div >
