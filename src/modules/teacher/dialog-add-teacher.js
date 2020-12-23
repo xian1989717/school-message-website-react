@@ -12,21 +12,22 @@ const layout = {
 }
 
 class AddTeacher extends React.Component {
-  // eslint-disable-next-line no-useless-constructor
+
   constructor(props) {
     super(props)
+    this.formRef = React.createRef()
   }
 
   handleOk = () => {
-    this.setState({
-      visible: false
-    })
+    const form = this.formRef.current
+    const values = form.getFieldsValue(['name', 'age'])
+    console.log(values)
+
+    this.props.cancel(false)
   }
 
   handleCancel = () => {
-    this.setState({
-      visible: false
-    })
+    this.props.cancel(false)
   }
 
   onFinish = (values) => {
@@ -49,10 +50,8 @@ class AddTeacher extends React.Component {
           onCancel={this.handleCancel}>
           <Form
             {...layout}
+            ref={this.formRef}
             name="basic"
-            initialValues={{
-              remember: true,
-            }}
             onFinish={this.onFinish}
             onFinishFailed={this.onFinishFailed}
           >
@@ -60,7 +59,7 @@ class AddTeacher extends React.Component {
               <Col span={8}>
                 <Form.Item
                   label="姓名"
-                  name="姓名"
+                  name="name"
                   rules={[
                     {
                       required: true,
@@ -74,7 +73,7 @@ class AddTeacher extends React.Component {
               <Col span={8}>
                 <Form.Item
                   label="年龄"
-                  name="年龄"
+                  name="age"
                   rules={[
                     {
                       required: true,
@@ -82,7 +81,8 @@ class AddTeacher extends React.Component {
                     },
                   ]}
                 >
-                  <Input />
+                  <Input
+                    type="number" />
                 </Form.Item>
               </Col>
               <Col span={8}>
@@ -96,7 +96,8 @@ class AddTeacher extends React.Component {
                     },
                   ]}
                 >
-                  <InputNumber />
+                  <Input
+                    type="number" />
                 </Form.Item>
               </Col>
             </Row>

@@ -154,6 +154,11 @@ class Teacher extends React.Component {
       visible: true
     })
   }
+  addTeacherCancel = (visible) => {
+    this.setState({
+      visible
+    })
+  }
 
 
 
@@ -178,7 +183,9 @@ class Teacher extends React.Component {
           rowKey={record => record.id + ''}
           style={{ padding: '0px 24px' }}
         />
-        <AddTeacher visible={this.state.visible} />
+        <AddTeacher
+          visible={this.state.visible}
+          cancel={this.addTeacherCancel} />
       </div >
     )
   }
