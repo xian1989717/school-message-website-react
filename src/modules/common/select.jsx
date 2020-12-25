@@ -20,8 +20,7 @@ class Selects extends React.Component {
     return (
       <Select
         style={{ width: '100%' }}
-        onChange={this.handleChange}
-      >
+        onChange={this.handleChange}>
         {list}
       </Select>
     )

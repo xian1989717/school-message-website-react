@@ -22,7 +22,7 @@ const layout = {
   }
 }
 
-const options = [
+const positionalTitleOptions = [
   {
     value: 'primary',
     data: '初级'
@@ -34,6 +34,37 @@ const options = [
   {
     value: 'senior',
     data: '高级'
+  }
+]
+
+const teachSubjectOptions = [
+  {
+    value: '1',
+    data: '语文'
+  },
+  {
+    value: '2',
+    data: '数学'
+  },
+  {
+    value: '3',
+    data: '英语'
+  },
+  {
+    value: '4',
+    data: '思想品德'
+  },
+  {
+    value: '5',
+    data: '美术'
+  },
+  {
+    value: '6',
+    data: '音乐'
+  },
+  {
+    value: '7',
+    data: '体育'
   }
 ]
 class AddTeacher extends React.Component {
@@ -143,7 +174,7 @@ class AddTeacher extends React.Component {
                   label="职称"
                   name="positionalTitles" >
                   <Selects
-                    list={options}
+                    list={positionalTitleOptions}
                     select={this.selectPositionalTitlesVal} />
                 </Form.Item>
               </Col>
@@ -300,9 +331,9 @@ class AddTeacher extends React.Component {
                       required: true,
                       message: 'Please input your password!',
                     },
-                  ]}
-                >
-                  <Selects />
+                  ]}>
+                  <Selects
+                    list={teachSubjectOptions} />
                 </Form.Item>
               </Col>
             </Row>
