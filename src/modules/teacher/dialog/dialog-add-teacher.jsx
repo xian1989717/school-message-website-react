@@ -11,6 +11,7 @@ import {
 } from 'antd'
 
 import Selects from '../../common/select.jsx'
+import RadioGroup from '../../common/radio-group.jsx'
 
 
 const layout = {
@@ -67,6 +68,17 @@ const teachSubjectOptions = [
     data: '体育'
   }
 ]
+
+const sexOptions = [
+  {
+    value: 'male',
+    data: '男性'
+  },
+  {
+    value: 'feMale',
+    data: '女性'
+  }
+]
 class AddTeacher extends React.Component {
 
   constructor(props) {
@@ -76,7 +88,9 @@ class AddTeacher extends React.Component {
       positionalTitlesVal: null,
       ObtainPositionalTitlesTime: null,
       graduationTime: null,
-      workStartTime: null
+      workStartTime: null,
+      teachSubjectId: null,
+      sex: null
     }
   }
 
@@ -119,6 +133,18 @@ class AddTeacher extends React.Component {
   onWorkStartTimeChange = (val) => {
     this.setState({
       workStartTime: val
+    })
+  }
+
+  selectTeachSubjectIdVal = (val) => {
+    this.setState({
+      teachSubjectId: val
+    })
+  }
+
+  selectSexOption = (val) => {
+    this.setState({
+      sex: val
     })
   }
 
@@ -333,15 +359,16 @@ class AddTeacher extends React.Component {
                     },
                   ]}>
                   <Selects
-                    list={teachSubjectOptions} />
+                    list={teachSubjectOptions}
+                    select={this.selectTeachSubjectIdVal} />
                 </Form.Item>
               </Col>
             </Row>
             <Row>
               <Col span={8}>
                 <Form.Item
-                  label="姓名"
-                  name="姓名"
+                  label="性别"
+                  name="sex"
                   rules={[
                     {
                       required: true,
@@ -349,79 +376,45 @@ class AddTeacher extends React.Component {
                     },
                   ]}
                 >
-                  <Input />
+                  <RadioGroup
+                    list={sexOptions}
+                    select={this.selectSexOption} />
                 </Form.Item>
               </Col>
               <Col span={8}>
                 <Form.Item
-                  label="年龄"
-                  name="年龄"
-                  rules={[
-                    {
-                      required: true,
-                      message: 'Please input your password!',
-                    },
-                  ]}
-                >
-                  <Input />
+                  label="是否班主任"
+                  name="isClassTeacher">
+                  <RadioGroup
+                    list={sexOptions}
+                    select={this.selectSexOption} />
                 </Form.Item>
               </Col>
               <Col span={8}>
                 <Form.Item
-                  label="职称"
-                  name="职称"
-                  rules={[
-                    {
-                      required: true,
-                      message: 'Please input your password!',
-                    },
-                  ]}
-                >
-                  <InputNumber />
+                  label="是否党员"
+                  name="isPartyMember">
+                  <RadioGroup
+                    list={sexOptions}
+                    select={this.selectSexOption} />
                 </Form.Item>
               </Col>
             </Row>
             <Row>
               <Col span={8}>
                 <Form.Item
-                  label="姓名"
-                  name="姓名"
-                  rules={[
-                    {
-                      required: true,
-                      message: 'Please input your username!',
-                    },
-                  ]}
-                >
-                  <Input />
+                  label="进修时间"
+                  name="studiesTime">
+                  <DatePicker
+                    style={{ width: '100%' }}
+                    onChange={this.onObtainPositionalTitlesTimeChange} />
                 </Form.Item>
               </Col>
               <Col span={8}>
                 <Form.Item
-                  label="年龄"
-                  name="年龄"
-                  rules={[
-                    {
-                      required: true,
-                      message: 'Please input your password!',
-                    },
-                  ]}
-                >
+                  label="备注"
+                  name="remark">
                   <Input />
-                </Form.Item>
-              </Col>
-              <Col span={8}>
-                <Form.Item
-                  label="职称"
-                  name="职称"
-                  rules={[
-                    {
-                      required: true,
-                      message: 'Please input your password!',
-                    },
-                  ]}
-                >
-                  <InputNumber />
                 </Form.Item>
               </Col>
             </Row>
