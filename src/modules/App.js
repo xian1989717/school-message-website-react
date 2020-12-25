@@ -7,8 +7,8 @@ import {
 } from '@ant-design/icons'
 import 'antd/dist/antd.css'
 
-import GradeGroup from './modules/grade-group'
-import Teacher from './modules/teacher'
+import GradeGroup from './grade-group'
+import Teacher from './teacher'
 
 const { Header, Sider } = Layout
 

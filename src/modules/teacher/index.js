@@ -2,7 +2,7 @@
 import React from 'react'
 import { PageHeader, Button, Table, Space } from 'antd'
 
-import AddTeacher from './dialog-add-teacher'
+import AddTeacher from './dialog/dialog-add-teacher'
 
 const columns = [
   {
