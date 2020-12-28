@@ -10,6 +10,11 @@ import {
   DatePicker
 } from 'antd'
 
+import {
+  positionalTitleOptions,
+  teachSubjectOptions,
+  sexOptions
+} from '../../base-data.js'
 import Selects from '../../common/select.jsx'
 import RadioGroup from '../../common/radio-group.jsx'
 
@@ -22,63 +27,6 @@ const layout = {
     span: 16,
   }
 }
-
-const positionalTitleOptions = [
-  {
-    value: 'primary',
-    data: '初级'
-  },
-  {
-    value: 'intermediate',
-    data: '中级'
-  },
-  {
-    value: 'senior',
-    data: '高级'
-  }
-]
-
-const teachSubjectOptions = [
-  {
-    value: '1',
-    data: '语文'
-  },
-  {
-    value: '2',
-    data: '数学'
-  },
-  {
-    value: '3',
-    data: '英语'
-  },
-  {
-    value: '4',
-    data: '思想品德'
-  },
-  {
-    value: '5',
-    data: '美术'
-  },
-  {
-    value: '6',
-    data: '音乐'
-  },
-  {
-    value: '7',
-    data: '体育'
-  }
-]
-
-const sexOptions = [
-  {
-    value: 'male',
-    data: '男性'
-  },
-  {
-    value: 'feMale',
-    data: '女性'
-  }
-]
 class AddTeacher extends React.Component {
 
   constructor(props) {
@@ -96,7 +44,10 @@ class AddTeacher extends React.Component {
 
   handleOk = () => {
     const form = this.formRef.current
-    const values = form.getFieldsValue(['name', 'age'])
+    const values = form.getFieldsValue([
+      'name',
+      'age'
+    ])
     console.log(values)
     console.log(this.state.positionalTitlesVal)
     this.props.cancel(false)
@@ -113,12 +64,13 @@ class AddTeacher extends React.Component {
   onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo)
   }
-
+  // 职称
   selectPositionalTitlesVal = (val) => {
     this.setState({
       positionalTitlesVal: val
     })
   }
+  // 获取职称时间
   onObtainPositionalTitlesTimeChange = (val) => {
     this.setState({
       ObtainPositionalTitlesTime: val
