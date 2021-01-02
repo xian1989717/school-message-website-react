@@ -7,7 +7,7 @@ class RadioGroup extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: 1
+      value: this.props.list[0].value
     }
   }
 
@@ -16,13 +16,13 @@ class RadioGroup extends Component {
     this.setState({
       value
     })
-    this.props.select = value
+    this.props.select(this, value)
   }
 
 
   render () {
     const radioList = this.props.list.map(i => {
-      return <Radio value={i.value}>{i.data}</Radio>
+      return <Radio key={i.value} value={i.value}>{i.data}</Radio>
     })
     const { value } = this.state
     return (

@@ -54,3 +54,14 @@ export const sexOptions = [
     data: '女性'
   }
 ]
+
+export const baseOptions = [
+  {
+    value: true,
+    data: '是'
+  },
+  {
+    value: false,
+    data: '否'
+  }
+]

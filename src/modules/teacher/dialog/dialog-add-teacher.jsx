@@ -13,7 +13,8 @@ import {
 import {
   positionalTitleOptions,
   teachSubjectOptions,
-  sexOptions
+  sexOptions,
+  baseOptions
 } from '../../base-data.js'
 import Selects from '../../common/select.jsx'
 import RadioGroup from '../../common/radio-group.jsx'
@@ -46,10 +47,33 @@ class AddTeacher extends React.Component {
     const form = this.formRef.current
     const values = form.getFieldsValue([
       'name',
-      'age'
+      'age',
+      'graduateSchool',
+      'speciality',
+      'administrativePosition',
+      'address',
+      'phone',
+      'sosPerson',
+      'sosPersonPhone',
+      'remark'
     ])
-    console.log(values)
-    console.log(this.state.positionalTitlesVal)
+    const {
+      positionalTitles,
+      obtainPositionalTitlesTime,
+      graduationTime,
+      workStartTime,
+      teachSubjectId,
+      sex
+    } = this.state
+    const obj = {
+      positionalTitles,
+      obtainPositionalTitlesTime,
+      graduationTime,
+      workStartTime,
+      teachSubjectId,
+      sex,
+      ...values
+    }
     this.props.cancel(false)
   }
 
@@ -76,25 +100,26 @@ class AddTeacher extends React.Component {
       ObtainPositionalTitlesTime: val
     })
   }
+  // 毕业时间
   onGraduationTimeChange = (val) => {
     this.setState({
       graduationTime: val
     })
   }
-
+  // 工作时间
   onWorkStartTimeChange = (val) => {
     this.setState({
       workStartTime: val
     })
   }
-
+  // 所任学科
   selectTeachSubjectIdVal = (val) => {
     this.setState({
       teachSubjectId: val
     })
   }
-
-  selectSexOption = (val) => {
+  // 性别
+  selectSexOption = (_this, val) => {
     this.setState({
       sex: val
     })
@@ -338,7 +363,7 @@ class AddTeacher extends React.Component {
                   label="是否班主任"
                   name="isClassTeacher">
                   <RadioGroup
-                    list={sexOptions}
+                    list={baseOptions}
                     select={this.selectSexOption} />
                 </Form.Item>
               </Col>
@@ -347,7 +372,7 @@ class AddTeacher extends React.Component {
                   label="是否党员"
                   name="isPartyMember">
                   <RadioGroup
-                    list={sexOptions}
+                    list={baseOptions}
                     select={this.selectSexOption} />
                 </Form.Item>
               </Col>
