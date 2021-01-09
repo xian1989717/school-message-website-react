@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import {
   Modal,
@@ -19,6 +20,8 @@ import {
 import Selects from '../../common/select.jsx'
 import RadioGroup from '../../common/radio-group.jsx'
 
+import { addTeacherAction } from '../../../store/actionCreator'
+
 
 const layout = {
   labelCol: {
@@ -28,6 +31,19 @@ const layout = {
     span: 16,
   }
 }
+
+// const mapState = (state) => {
+
+// }
+
+const mapDispatch = dispatch => {
+  return {
+    addTeacher (teacher) {
+      dispatch(addTeacherAction(teacher))
+    }
+  }
+}
+
 class AddTeacher extends React.Component {
 
   constructor(props) {
@@ -74,6 +90,7 @@ class AddTeacher extends React.Component {
       sex,
       ...values
     }
+    this.props.addTeacher(obj)
     this.props.cancel(false)
   }
 
@@ -402,4 +419,4 @@ class AddTeacher extends React.Component {
   }
 }
 
-export default AddTeacher
+export default connect(null, mapDispatch)(AddTeacher)
